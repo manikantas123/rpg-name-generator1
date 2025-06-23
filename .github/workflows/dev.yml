@@ -1,0 +1,5 @@
+on:
+  push:
+    branches:
+      - Main
+    pull_request:
