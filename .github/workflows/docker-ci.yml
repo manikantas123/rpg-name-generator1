@@ -1,20 +1,21 @@
-#NAME: Build and Push Docker Image
+# NAME: Build and Push Docker Image
 
 on:
   push:
     branches:
       - main
   pull_request:
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Extract Docker image metadata
         id: meta
-        users: docker/metadata-action@v5
+        uses: docker/metadata-action@v5  # ✅ fixed typo here
         with:
           images: ${{ vars.DOCKER_USERNAME }}/my-image
