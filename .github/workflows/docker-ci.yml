@@ -18,12 +18,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/my-image
+          images: ${{ secrets.DOCKERUSERNAME }}/my-image
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ variables.DOCKERUSERNAME }}
+          username: ${{ secrets.DOCKERUSERNAME }}
           password: ${{ secrets.DOCKERPASSWORD }}
 
       - name: Set up Docker Buildx
